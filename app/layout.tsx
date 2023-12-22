@@ -1,14 +1,12 @@
-import { readObjects } from "@/app/lib/parse-server";
 import { inter } from '@/app/ui/fonts';
 import '@/app/ui/global.css';
-import Header from '@/app/ui/layout/header';
 import Head from 'next/head';
+import HeaderWrapper from '@/app/ui/layout/headerWrapper'
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const projectsList = await readObjects(); 
   return (
     <html lang="en">
       <Head>
@@ -16,7 +14,7 @@ export default async function RootLayout({
       </Head>
       <body className={`${inter.className} antialiased`}>
         <main className="flex min-h-screen flex-col p-0">
-          <Header projectsList={projectsList}></Header>
+          <HeaderWrapper></HeaderWrapper>
           {children}
         </main>
       </body>
